@@ -8,7 +8,7 @@ class site(models.Model):
     site_code = models.CharField(max_length=128)
     site_id = models.IntegerField()
     
-    def __str__(self):
+    def __unicode__(self):
         return self.site_name
     
 class media(models.Model):
@@ -16,5 +16,5 @@ class media(models.Model):
     url = models.URLField(max_length=128)
     belong_site = models.ForeignKey(site)
     
-    def __str__(self):
+    def __unicode__(self):
         return self.title

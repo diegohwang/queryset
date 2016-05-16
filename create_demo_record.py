@@ -19,20 +19,28 @@ class QuerySetOperation():
         
     #1.3
     def create_site3(self):
-	print 'method3'
         new_site = site()
         new_site.site_name = '优酷'
         new_site.site_code = 'youku'
         new_site.site_id = 3
-	new_site.save()
+        new_site.save()
         
     #1.4 首先尝试获取，不存在就创建，可以防止重复(返回值(object, True/False))
     def create_site4(self):
         site.objects.get_or_create(site_name='乐视', site_code='letv', site_id=4)
         
+#2. 获取对象(过滤)
+    #2.1 查询所有
+    def get_all(self):
+        all_site = site.objects.all()
+        #QuerySet是可以迭代的
+        for s in all_site:
+            print 'the site_id %d is %s' % (s.site_id, s.site_name) 
+        
 if __name__ == "__main__":
     qso = QuerySetOperation()
-    #qso.create_site1()
-    #qso.create_site2()
-    qso.create_site3()
-    #qso.create_site4()
+#     qso.create_site1()
+#     qso.create_site2()
+#     qso.create_site3()
+#     qso.create_site4()
+    qso.get_all()
