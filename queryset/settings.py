@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     
     'cellphone',
+    'video',
     
 )
 
@@ -89,7 +90,7 @@ DATABASES = {
         'NAME': 'queryset',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST':'127.0.0.1',
+        'HOST':'192.168.16.164',
         'PORT': '3306',
     }
     
