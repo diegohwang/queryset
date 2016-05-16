@@ -19,10 +19,12 @@ class QuerySetOperation():
         
     #1.3
     def create_site3(self):
+	print 'method3'
         new_site = site()
         new_site.site_name = '优酷'
         new_site.site_code = 'youku'
         new_site.site_id = 3
+	new_site.save()
         
     #1.4 首先尝试获取，不存在就创建，可以防止重复(返回值(object, True/False))
     def create_site4(self):
@@ -30,7 +32,7 @@ class QuerySetOperation():
         
 if __name__ == "__main__":
     qso = QuerySetOperation()
-    qso.create_site1()
-    qso.create_site2()
+    #qso.create_site1()
+    #qso.create_site2()
     qso.create_site3()
-    qso.create_site4()
+    #qso.create_site4()
