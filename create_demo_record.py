@@ -35,7 +35,13 @@ class QuerySetOperation():
         all_site = site.objects.all()
         #QuerySet是可以迭代的
         for s in all_site:
-            print 'the site_id %d is %s' % (s.site_id, s.site_name) 
+            print 'the site_id %d is %s' % (s.site_id, s.site_name)
+    
+    def get_slice(self):
+        all_site = site.objects.all()
+        slice_site = all_site[0:2]
+        for s in slice_site:
+            print s
         
 if __name__ == "__main__":
     qso = QuerySetOperation()
@@ -43,4 +49,5 @@ if __name__ == "__main__":
 #     qso.create_site2()
 #     qso.create_site3()
 #     qso.create_site4()
-    qso.get_all()
+#     qso.get_all()
+    qso.get_slice()
