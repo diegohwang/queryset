@@ -33,6 +33,8 @@ class QuerySetOperation():
     #2.1 查询所有
     def get_all(self):
         all_site = site.objects.all()
+        #获取数量
+        print all_site.count()
         #QuerySet是可以迭代的
         for s in all_site:
             print 'the site_id %d is %s' % (s.site_id, s.site_name)
@@ -80,7 +82,31 @@ class QuerySetOperation():
     def exclude(self):
         st = site.objects.exclude(site_code__exact='youku')
         print st
-        
+    
+#3 排序
+    #3.1 从小到大
+    def sort_asc(self):
+        sites = site.objects.all().order_by('site_id')
+        for s in sites:
+            print 'the site_id %d is %s' % (s.site_id, s.site_name)
+    #3.2 从大到小
+    def sort_desc(self):
+        sites = site.objects.all().order_by('-site_id')
+        for s in sites:
+            print 'the site_id %d is %s' % (s.site_id, s.site_name)
+
+#4 更新
+    def update(self):
+        st = site.objects.filter(site_name='优酷')
+        st.update(site_name='爱奇艺', site_code='iqiyi')
+    
+#5 删除
+    def delete(self):
+        st = site.objects.all()
+        print st.count()
+        st.delete()
+        print st.count()
+    
 if __name__ == "__main__":
     qso = QuerySetOperation()
 #     qso.create_site1()
@@ -88,4 +114,4 @@ if __name__ == "__main__":
 #     qso.create_site3()
 #     qso.create_site4()
 #     qso.get_all()
-    qso.get_slice()
+    qso.update()
