@@ -114,4 +114,5 @@ if __name__ == "__main__":
 #     qso.create_site3()
 #     qso.create_site4()
 #     qso.get_all()
-    qso.update()
+    #qso.update()
+    qso.delete()
