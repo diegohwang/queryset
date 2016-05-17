@@ -14,7 +14,8 @@ class site(models.Model):
 class media(models.Model):
     title = models.CharField(max_length=128)
     url = models.URLField(max_length=128)
-    belong_site = models.ForeignKey(site)
+    #belong_site = models.ForeignKey(site)
+    belong_site = models.IntegerField()
     
     def __unicode__(self):
         return self.title

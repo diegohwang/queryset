@@ -12,9 +12,8 @@ def main():
     media_list = []
     with open(r'media.txt') as media_file:
         for mf in media_file:
-            title, url, site_id= mf.split(',')
-            st = site.objects.filter(site_id=site_id)
-            new_media = media(title=title, url=url, belong_site=st)
+            title, url, belong_site= mf.split(',')
+            new_media = media(title=title, url=url, belong_site=belong_site)
             media_list.append(new_media)
     media.objects.bulk_create(media_list)
     
