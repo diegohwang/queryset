@@ -25,7 +25,7 @@ class QuerySetOperation():
         new_site.site_id = 3
         new_site.save()
         
-    #1.4 首先尝试获取，不存在就创建，可以防止重复(返回值(object, True/False))
+    #1.4 首先尝试获取，不存在就创建，可以防止重复(返回值元组(object, True/False))
     def create_site4(self):
         site.objects.get_or_create(site_name='乐视', site_code='letv', site_id=4)
         
