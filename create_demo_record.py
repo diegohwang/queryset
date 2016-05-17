@@ -10,24 +10,24 @@ class QuerySetOperation():
 
     #1.1
     def create_site1(self):
-        site.objects.create(site_name='高清mp4吧', site_code='mp4ba', site_id=1)
+        site.objects.create(site_name='BT天堂', site_code='bttiantang', site_id=1)
         
     #1.2
     def create_site2(self):
-        new_site = site(site_name='海盗窝', site_code='hdwo', site_id=2)
+        new_site = site(site_name='高清mp4吧', site_code='mp4ba', site_id=2)
         new_site.save()
         
     #1.3
     def create_site3(self):
         new_site = site()
-        new_site.site_name = '优酷'
-        new_site.site_code = 'youku'
+        new_site.site_name = '海盗窝'
+        new_site.site_code = 'hdwo'
         new_site.site_id = 3
         new_site.save()
         
     #1.4 首先尝试获取，不存在就创建，可以防止重复(返回值元组(object, True/False))
     def create_site4(self):
-        site.objects.get_or_create(site_name='乐视', site_code='letv', site_id=4)
+        site.objects.get_or_create(site_name='优酷', site_code='youku', site_id=4)
         
 #2. 获取对象(过滤)
     #2.1 查询所有
@@ -109,10 +109,10 @@ class QuerySetOperation():
     
 if __name__ == "__main__":
     qso = QuerySetOperation()
-#     qso.create_site1()
-#     qso.create_site2()
-#     qso.create_site3()
-#     qso.create_site4()
+    qso.create_site1()
+    qso.create_site2()
+    qso.create_site3()
+    qso.create_site4()
 #     qso.get_all()
     #qso.update()
-    qso.delete()
+#     qso.delete()
