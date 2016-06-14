@@ -13,8 +13,7 @@ def main():
     with open(r'media.txt') as media_file:
         for mf in media_file:
             title, url, belong_site= mf.split(',')
-            #new_media = media(title=title, url=url, belong_site=belong_site)
-            new_media = media(title=u'%s' % title, url=u'%s' % url, belong_site=u'%s' % belong_site)
+            new_media = media(title=title, url=url, belong_site=belong_site)
             media_list.append(new_media)
     mo = media.objects.bulk_create(media_list)
     print mo
