@@ -9,7 +9,7 @@ class site(models.Model):
     site_id = models.IntegerField()
     
     def __unicode__(self):
-        return self.site_name
+        return u'%s' % self.site_name
     
 class media(models.Model):
     title = models.CharField(max_length=128)
@@ -18,4 +18,4 @@ class media(models.Model):
     belong_site = models.IntegerField()
     
     def __unicode__(self):
-        return self.title
+        return u'%s' % self.title
