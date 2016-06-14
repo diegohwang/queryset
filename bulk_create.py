@@ -15,7 +15,8 @@ def main():
             title, url, belong_site= mf.split(',')
             new_media = media(title=title, url=url, belong_site=belong_site)
             media_list.append(new_media)
-    media.objects.bulk_create(media_list)
+    mo = media.objects.bulk_create(media_list)
+    print mo
     
 if __name__=="__main__":
     main()
