@@ -16,7 +16,8 @@ def main():
             new_media = media(title=title, url=url, belong_site=belong_site)
             media_list.append(new_media)
     mo = media.objects.bulk_create(media_list)
-    print mo
+    for m in mo:
+        print m.title
     
 if __name__=="__main__":
     main()
